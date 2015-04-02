@@ -1,0 +1,59 @@
+﻿@model MVC01.Models.Northwind.Product
+@{ ViewBag.Title = "Edit Product"; }
+ @*
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(excludePropertyErrors: true)
+        <fieldset>
+            <legend>@ViewBag.Title</legend>
+            @Html.Hidden("ProductID", Model.ProductID)
+            <p>
+                @Html.Label("ProductName")
+                @Html.TextBox("ProductName", Model.ProductName)
+            </p>
+            <p>
+                @Html.Label("UnitPrice")
+                @Html.TextBox("UnitPrice", Model.UnitPrice)
+            </p>
+            <p>
+                @Html.Label("CategoryID")
+                @Html.DropDownList("CategoryID", ViewBag.Categories as SelectList)
+            </p>
+            <p><input type="submit" value="Save" /></p>
+        </fieldset>
+    }*@
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(excludePropertyErrors: true)
+    <fieldset>
+        <legend>@ViewBag.Title</legend>
+        @Html.HiddenFor(m =>  m.ProductID)
+        <p>
+            @Html.LabelFor(m => m.ProductName)
+            @Html.TextBoxFor(m => m.ProductName)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.SupplierID)
+            @Html.DropDownListFor(m => m.SupplierID, ViewBag.Suppliers as SelectList)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.UnitPrice)
+            @Html.TextBoxFor(m => m.UnitPrice)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.CategoryID)
+            @Html.DropDownListFor(m => m.CategoryID, ViewBag.Categories as SelectList)
+        </p>
+        <p><input type="submit" value="Save" /></p>
+    </fieldset>
+}
+
+@*@using (Html.BeginForm()) {
+    <fieldset>
+        @Html.AntiForgeryToken()
+        <legend>@ViewBag.Title</legend>
+        @Html.EditorForModel()
+        <p><input type="submit" value="Save" /></p>
+    </fieldset>
+    }*@

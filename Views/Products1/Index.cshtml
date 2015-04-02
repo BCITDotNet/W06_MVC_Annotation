@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MVC01.Models.Northwind.Product>
+
+@{
+    ViewBag.Title = "Index";
+    }
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>Product Name</th>
+        <th>Supplier</th>
+        <th>Category</th>
+        <th>Unit Price</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.Supplier.CompanyName</td>
+            <td>@item.Category.CategoryName</td>
+            <td>@String.Format("{0:c}", @item.UnitPrice)</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = item.ProductID })</td>
+        </tr>
+    }
+</table>

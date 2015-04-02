@@ -1,0 +1,18 @@
+﻿@model MVC01.Models.Northwind.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm()) {
+    <fieldset>
+        @Html.AntiForgeryToken()
+        <legend>@ViewBag.Title</legend>
+        @Html.EditorForModel()
+        <p><input type="submit" value="Save" /></p>
+    </fieldset>
+}
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

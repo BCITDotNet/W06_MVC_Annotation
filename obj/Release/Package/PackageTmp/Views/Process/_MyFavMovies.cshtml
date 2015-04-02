@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "_MyFavMovies";
+    string[] favMovies = { "Star Wars", "Gandhi", "Cleopatra", "Star Trek" };
+}
+
+<ul>
+    @foreach (var item in favMovies)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+
